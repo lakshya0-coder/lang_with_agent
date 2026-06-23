@@ -1,0 +1,12 @@
+venv create and activate
+
+tools.py
+.env
+app.py 
+streamlit run.py
+Questions :
+3*4+5
+Word count : I am best
+What is python ?
+
+github --> streamlit cloud free deploy --> link message box
