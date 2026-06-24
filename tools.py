@@ -1,4 +1,4 @@
-from langchain.tools.base import tool
+from langchain_core.tools import tool
 
 @tool
 def calculator(expression: str) -> str:
@@ -6,8 +6,8 @@ def calculator(expression: str) -> str:
     try:
         # Evaluate the expression safely
         return str(eval(expression))
-    except:
-        return "Invaid Expression"
+    except Exception:
+        return "Invalid Expression"
     
 @tool
 def word_counter(text: str) -> str:

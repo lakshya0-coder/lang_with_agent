@@ -22,21 +22,16 @@ llm = ChatGoogleGenerativeAI(
 #tool
 tools = [calculator, word_counter]
 
-#prompt
 prompt = ChatPromptTemplate.from_messages(
     [
-        ("system", "You are a helpful assistant."),
-        ("human", "{input}"),
-        ("placeholder", "{agent_scratchpad}")
-    ]
-)
-prompt = ChatPromptTemplate.from_messages(
-    [
-        ("system", "You are a helpful assistant.",
-         "You can answer questions using your own knowledge.\n",
-         "Use tools only when necessary.\n",
-         "If a question requires calculation, use the calculator tool.\n ",
-         "If a question asks for word count, use the word_counter tool.\n"),
+        (
+            "system",
+            "You are a helpful assistant. "
+            "You can answer questions using your own knowledge. "
+            "Use tools only when necessary. "
+            "If a question requires calculation, use the calculator tool. "
+            "If a question asks for word count, use the word_counter tool.",
+        ),
         ("human", "{input}"),
         ("placeholder", "{agent_scratchpad}")
     ]
@@ -65,6 +60,6 @@ st.set_page_config(page_title="AI Agent")
 st.title("AI Agent with Gemini Model")
 query = st.text_input("Enter your query:")
 if st.button("Submit"):
-    respose = my_output(query)
+    response = my_output(query)
     st.subheader("Response:")
-    st.write(respose)
+    st.write(response)
